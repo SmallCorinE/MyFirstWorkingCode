@@ -1,0 +1,126 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main()
+{
+	//phone numb to Alpha
+	int girl[] = {11, 12, 13, 14, 15, 16, 17, 18, 19, 20 }; // each girl's phone number
+	int sizeg;
+	sizeg = sizeof(girl) / sizeof(girl[0]);
+	
+	int GArr[80];
+	printf("Girls' phone numbers are replaced by these letters\n: ");
+	for (int a = 0; a < sizeg; a++)
+	{
+		GArr[a] = (a);
+		printf("%c ", GArr[a]+97);
+	}
+	printf("\n");
+	printf("Total number of registered girls = %d", sizeg);
+	printf("\n\n");
+
+	int boy[] = { 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40}; // each boy's phone number
+	int sizeb;
+	sizeb = sizeof(boy) / sizeof(boy[0]);
+
+	int BArr[80];
+	printf("Boys' phone numbers are replaced by these letters\n: ");
+	for (int b = 0; b < sizeb; b++)
+	{
+		BArr[b] = (b);
+		printf("%c ", BArr[b] + 65);
+	}
+	printf("\n");
+	printf("Total number of registered boys = %d", sizeb);
+	printf("\n\n");
+
+	printf("alphabet of selected girl\n= ");
+	int a[10]; //10=sizeg
+	int i, j;
+	srand(time(NULL));
+	for (int i = 0; i < sizeg; i++)
+	{	
+		again:;
+		a[i] = rand() % sizeg;
+		for (j = 0; j < i; j++)
+		{
+			if (a[i] == a[j])
+			{
+				goto again;
+			}
+		}
+	}
+	for (i = 0; i < sizeg; i++)
+	{
+		printf("%c ", a[i] + 97);
+	}
+	printf("\n");
+
+	printf("alphabet of selected boy\n= ");
+	int b[10];
+	int k, l;
+	//srand(time(NULL));
+	for (int k = 0; k < sizeg; k++)
+	{
+	again2:;
+		b[k] = rand() % sizeb;
+		for (l = 0; l < k; l++)
+		{
+			if (b[k] == b[l])
+			{
+				goto again2;
+			}
+		}
+	}
+	for (k = 0; k < sizeg; k++)
+	{
+		printf("%c ", b[k] + 65);
+	}
+	printf("\n\n");
+
+	int c;
+	for (c = 0; c < sizeg; c++)
+	{
+		printf("%d번째 커플 %c & %c\n",c+1,a[c]+97, b[c]+65);
+		printf("their phone number : %d & %d\n", girl[a[c]], boy[b[c]]);
+	}
+	printf("\n\n");
+
+/* One of Result
+Girls' phone numbers are replaced by these letters
+: a b c d e f g h i j
+Total number of registered girls = 10
+
+Boys' phone numbers are replaced by these letters
+: A B C D E F G H I J K L M N O P Q R S T
+Total number of registered boys = 20
+
+alphabet of selected girl
+= f a i g b h d e j c
+alphabet of selected boy
+= T C K O I Q D M P R
+
+1번째 커플 f & T
+their phone number : 16 & 40
+2번째 커플 a & C
+their phone number : 11 & 23
+3번째 커플 i & K
+their phone number : 19 & 31
+4번째 커플 g & O
+their phone number : 17 & 35
+5번째 커플 b & I
+their phone number : 12 & 29
+6번째 커플 h & Q
+their phone number : 18 & 37
+7번째 커플 d & D
+their phone number : 14 & 24
+8번째 커플 e & M
+their phone number : 15 & 33
+9번째 커플 j & P
+their phone number : 20 & 36
+10번째 커플 c & R
+their phone number : 13 & 38
+*/
+
+}
